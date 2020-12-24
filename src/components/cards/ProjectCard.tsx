@@ -1,5 +1,4 @@
 import React from "react";
-import Img from "gatsby-image";
 import {
   makeStyles,
   Typography,
@@ -13,14 +12,16 @@ import {
   SvgIcon,
   Chip,
 } from "@material-ui/core";
+import ProjectImg from "../Image/ProjectImg";
+
 import { ExpandCardContent } from "./ExpandCardContent";
 type Props = {
   id: string;
   name: string;
   date: string;
   link: string;
-  detail: string;
-  image: any;
+  detail: Array<string>;
+  imageFileName: string;
   icon: any;
   tags: Array<string>;
 };
@@ -40,11 +41,12 @@ export const ProjectCard: React.FC<Props> = ({
   date,
   link,
   detail,
-  image,
+  imageFileName,
   icon,
   tags,
 }) => {
   const classes = useStyles();
+
   return (
     <Grid item xs={12} sm={6} md={4}>
       <Card>
@@ -55,7 +57,7 @@ export const ProjectCard: React.FC<Props> = ({
           target="_blank"
         >
           <CardMedia>
-            <Img fluid={image} className={classes.cardMedia} />
+            <ProjectImg filename={imageFileName} alt={name} />
           </CardMedia>
         </CardActionArea>
         <ExpandCardContent
@@ -76,7 +78,7 @@ export const ProjectCard: React.FC<Props> = ({
                     component="div"
                     color="textSecondary"
                   >
-                    {date}~
+                    {date}
                   </Typography>
                   <Typography component="h2" variant="h6">
                     {name}
@@ -101,9 +103,18 @@ export const ProjectCard: React.FC<Props> = ({
           }
           detail={
             <CardContent>
-              <Typography variant="body2" component="div">
-                {detail}
-              </Typography>
+              {detail.map((line) => {
+                return (
+                  <Typography
+                    key={detail.indexOf(line)}
+                    variant="body2"
+                    component="div"
+                    paragraph
+                  >
+                    {line}
+                  </Typography>
+                );
+              })}
             </CardContent>
           }
         />

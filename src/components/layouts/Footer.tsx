@@ -23,13 +23,23 @@ export const Footer: React.FC = () => {
               align="center"
               paragraph
             >
+              {"Powered by "}
               <Link
                 color="inherit"
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://www.gatsbyjs.com"
               >
-                {"Built with GatsbyJS ❤️"}
+                {"GatsbyJS ❤️"}
+              </Link>
+              {"Theme by "}
+              <Link
+                color="inherit"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://material-ui.com/"
+              >
+                {"Material-UI 🎉"}
               </Link>
             </Typography>
           </Grid>

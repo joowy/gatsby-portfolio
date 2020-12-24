@@ -4,7 +4,7 @@ import {
   ThemeProvider as MuiThemeProvider,
   Theme,
 } from "@material-ui/core/styles";
-
+import { teal, red } from "@material-ui/core/colors";
 import { useTheme } from "@material-ui/core/styles";
 
 interface ThemeProviderProps {
@@ -39,6 +39,36 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, theme }) => {
       ...theme,
       palette: {
         type: themeOptions.paletteType,
+        primary: {
+          main: theme.palette.type === "dark" ? teal[200] : teal[300],
+        },
+        secondary: {
+          main: theme.palette.type === "dark" ? red[200] : red.A700,
+        },
+      },
+      overrides: {
+        MuiButton: {
+          root: {
+            textTransform: "none",
+          },
+        },
+        MuiChip: {
+          root: {
+            marginRight: theme.spacing(0.5),
+            marginTop: theme.spacing(0.5),
+          },
+        },
+        MuiLinearProgress: {
+          root: {
+            height: theme.spacing(0.5),
+          },
+        },
+        MuiAvatar: {
+          colorDefault: {
+            backgroundColor:
+              theme.palette.type === "dark" ? teal[200] : teal[300],
+          },
+        },
       },
     });
   }, [theme, themeOptions.paletteType]);

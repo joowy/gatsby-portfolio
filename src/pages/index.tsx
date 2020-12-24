@@ -4,7 +4,12 @@ import { makeStyles, Container, Typography } from "@material-ui/core";
 import { Layout, Hello, WhatICanDo, Skills } from "../components";
 import { createMuiTheme } from "@material-ui/core/styles";
 
-import { helloData, whatICanDoData } from "../mock/data";
+import {
+  helloData,
+  whatICanDoData,
+  skillsData,
+  projectsData,
+} from "../mock/data";
 import { PortfolioProvider } from "../context/context";
 import { Projects } from "../components/sections/Projects";
 import ThemeProvider from "../material-ui-dark-mode/index";
@@ -19,10 +24,14 @@ const useStyles = makeStyles((theme) => ({
 const home: React.FC<PageProps> = ({ path }) => {
   const [hello, setHello] = useState({});
   const [whatICanDo, setWhatICanDo] = useState({});
+  const [skills, setSkills] = useState({});
+  const [projects, setProjects] = useState({});
 
   useEffect(() => {
     setHello({ ...helloData });
     setWhatICanDo({ ...whatICanDoData });
+    setSkills({ ...skillsData });
+    setProjects({ ...projectsData });
   }, []);
   const classes = useStyles();
   const theme = createMuiTheme({
@@ -34,7 +43,7 @@ const home: React.FC<PageProps> = ({ path }) => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <PortfolioProvider value={{ hello, whatICanDo }}>
+      <PortfolioProvider value={{ hello, whatICanDo, skills, projects }}>
         <Layout pathname={path}>
           <Container maxWidth="md" className={classes.container}>
             <Hello />

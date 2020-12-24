@@ -29,6 +29,7 @@
     "gatsby-transformer-sharp": "^2.9.0",
     "html-react-parser": "^1.0.0",
     "i18next": "^19.8.4",
+    "nanoid": "^3.1.20",
     "react": "^16.13.1",
     "react-bootstrap": "^1.4.0",
     "react-dom": "^16.13.1",

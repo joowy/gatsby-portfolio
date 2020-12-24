@@ -1,15 +1,8 @@
-import React from "react";
-import {
-  makeStyles,
-  Typography,
-  Grid,
-  LinearProgress,
-  CardContent,
-  Card,
-} from "@material-ui/core";
-import { Breakpoint } from "@material-ui/core/styles/createBreakpoints";
-import { ExpandCardContent } from "../cards/ExpandCardContent";
+import React, { useContext } from "react";
+import { makeStyles, Typography, Grid } from "@material-ui/core";
 import { SkillsCard } from "../cards/SkillsCard";
+import PortfolioContext from "../../context/context";
+
 const useStyles = makeStyles((theme) => ({
   cardContent: {
     paddingTop: theme.spacing(2),
@@ -19,13 +12,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 export const Skills: React.FC = () => {
+  const { skills } = useContext(PortfolioContext);
+  const { catagories } = skills;
+
   return (
     <Grid container spacing={2}>
-      <SkillsCard
-        id={"1"}
-        name={"Languages"}
-        skills={[{ id: "1", name: "Java", level: 3 }]}
-      />
+      {catagories &&
+        catagories?.map((items) => {
+          const { id, name, techs } = items;
+          return <SkillsCard key={id} id={id} name={name} skills={techs} />;
+        })}
     </Grid>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Typography, Grid, Button, makeStyles } from "@material-ui/core";
-import HelloImg from "../icons/HelloImg";
+import { HelloImg } from "../Image/HelloImg";
 import PortfolioContext from "../../context/context";
 
 const useStyles = makeStyles((theme) => ({
@@ -15,6 +15,7 @@ export const Hello: React.FC = () => {
   const {
     title,
     name,
+    profilePic,
     description,
     GithubLink,
     LinkedIn,
@@ -29,7 +30,7 @@ export const Hello: React.FC = () => {
       <Grid item xs={12}>
         <Grid container spacing={2} justify="center" alignItems="center">
           <Grid item>
-            <HelloImg />
+            <HelloImg filename={profilePic} alt={name} />
           </Grid>
           <Grid item xs={11} sm={10}>
             <Typography component="span" variant="h6">
@@ -38,6 +39,17 @@ export const Hello: React.FC = () => {
             <Typography variant="body1" paragraph>
               {description || "MISSING"}
             </Typography>
+            <Button
+              href={EmailMe || ""}
+              variant="outlined"
+              color="secondary"
+              size="medium"
+              rel="external noreferrer noopener nofollow"
+              target="_blank"
+              className={classes.button}
+            >
+              {"Email"}
+            </Button>
             <Button
               href={GithubLink || ""}
               variant="outlined"
@@ -70,17 +82,6 @@ export const Hello: React.FC = () => {
               className={classes.button}
             >
               {"Twitter"}
-            </Button>
-            <Button
-              href={EmailMe || ""}
-              variant="outlined"
-              color="secondary"
-              size="medium"
-              rel="external noreferrer noopener nofollow"
-              target="_blank"
-              className={classes.button}
-            >
-              {"Email"}
             </Button>
           </Grid>
         </Grid>
