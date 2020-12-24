@@ -17,12 +17,7 @@ export const Footer: React.FC = () => {
       <Container maxWidth="sm">
         <Grid container justify="center" alignItems="center">
           <Grid item xs={12}>
-            <Typography
-              variant="body2"
-              color="textSecondary"
-              align="center"
-              paragraph
-            >
+            <Typography variant="body2" color="textSecondary" align="center">
               {"Powered by "}
               <Link
                 color="inherit"
@@ -30,7 +25,7 @@ export const Footer: React.FC = () => {
                 rel="noopener noreferrer"
                 href="https://www.gatsbyjs.com"
               >
-                {"GatsbyJS ❤️"}
+                {"GatsbyJS❤️ "}
               </Link>
               {"Theme by "}
               <Link
@@ -39,8 +34,22 @@ export const Footer: React.FC = () => {
                 rel="noopener noreferrer"
                 href="https://material-ui.com/"
               >
-                {"Material-UI 🎉"}
+                {"Material-UI🎉"}
               </Link>
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant="body2" color="textSecondary" align="center">
+              {"Credits to "}
+              <Link
+                color="inherit"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://github.com/bicstone/"
+              >
+                {"Takanori Oishi "}
+              </Link>
+              {"for card components"}
             </Typography>
           </Grid>
           <Grid item xs={12}>

@@ -79,10 +79,9 @@ export const projectsData = {
       date: "5/29/2019 ~ 6/9/2020",
       link: "https://github.com/joowy/react-triangle-calculator",
       detail: [
-        "Triangle calculator",
         "Uses trigonometry to calculate sides and angles.",
         "This project was originally built with python and PyQt5. I wanted to learn javascript, so I recreated the python project. At first attempted using vanilla javascript.",
-        "Vanilla javascript version was terrible so I learned react to rewrite it again.",
+        "Vanilla javascript version was terrible, encouraged me to learn react to rewrite it again.",
       ],
       imageFileName: "triangle_calc.png",
       icon: ChangeHistory,
@@ -122,7 +121,7 @@ export const skillsData = {
       techs: [
         { id: nanoid(2), name: "Git", level: 2 },
         { id: nanoid(2), name: "Git Bash", level: 1 },
-        { id: nanoid(2), name: "Github", level: 3.5 },
+        { id: nanoid(2), name: "GitHub", level: 3.5 },
         { id: nanoid(2), name: "VScode", level: 4.5 },
         { id: nanoid(2), name: "RStudio", level: 2 },
         { id: nanoid(2), name: "PowerShell", level: 2.5 },
